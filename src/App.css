@@ -1,31 +1,106 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+  --Primary-1: #495E57;
+  --Primary-2: #F4CE14;
+  --Secondary-1: #EE9972;
+  --Secondary-2: #FBDABB;
+  --Highlight-1: #EDEFEE;
+  --Highlight-2: #333333;
 }
+
+body{
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+#header, #hero-section, #testimonials-section, #highlights-section,
+#testimonials-section, #about-section{
+  grid-template-columns: repeat(1fr, 12);
+  padding-inline: 70px;
+}
+
+/* header styles */
+#header{
+  margin-inline: 70px;
+  display: flex;
+  justify-content: space-between;
+  max-height: 102px;
+  align-items: end;
+  margin-block: 20px;
+  position: sticky;
+}
+
+#header img{
+  width: 185px;
+  height: 58px;
+}
+
+#nav-links{
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+#nav-links a{
+  text-decoration: none;
+  color: black;
+  transition:all 0.2s ease-in-out;
+}
+
+#nav-links a:hover{
+  color: var(--Primary-1);
+}
+
+
+/* main styles */
+#main{
+  display: grid;
+  grid-template-rows: 453px 798px 558px 556px;
+  min-height: 2375px;
+}
+
+/* hero section styles */
+#hero-section{
+  background-color: var(--Primary-1);
+  height: 459px;
+  width: 100%;
+  grid-row: 1/ span 1;
+
+}
+
+#hero-section>h1{
+  grid-column: 3/ span 8;
+}
+
+#highlights-section{
+  height: 798px;
+  grid-row: 2/ span 1;
+}
+
+#testimonials-section{
+  background-color: var(--Highlight-1);
+  width: 100%;
+  grid-row: 3/ span 1;
+}
+
+#footer{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--Highlight-2);
+  color: white;
+  min-height: 330px;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
