@@ -12,7 +12,7 @@ const Hero = () => {
                 <Link to='/reservation'><button className="cta"> Reserve a Table</button></Link>
             </div>
             <div id="hero-grid-2">
-                <img src={Banner}></img>
+                <img src={Banner} alt=" "></img>
             </div>
         </section>
     );

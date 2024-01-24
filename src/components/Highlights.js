@@ -1,29 +1,30 @@
 import MenuCard from '../components/MenuCard';
-import salad from '../assets/Greek Salad.jpg';
-import bruschetta from '../assets/Bruschetta.jpg';
-import dessert from '../assets/Macaroni.jpg';
 
 const Highlights = () => {
     const menuItems = [
         {
-            image: {salad},
+            image: './images/assets/Greek Salad.jpg',
             food: "Greek Salad",
-            description: "",
-            price: "12.99"
+            description: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
+            price: "12.99",
+            alt: "Salad"
         },
         {
-            image: {bruschetta},
+            image: './images/assets/Bruschetta.jpg',
             food: "Bruschetta",
-            description: "",
-            price: "5.99"
+            description: "Our Bruschetta is made from  grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
+            price: "5.99",
+            alt: "cheese"
         },
         {
-            image: {dessert},
+            image: './images/assets/Macaroni.jpg',
             food: "Lemon dessert",
-            description: "",
-            price: "7.99"
+            description: "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is authentic as can be imagined.",
+            price: "7.99",
+            alt: "dessert image"
         }
     ];
+
     const menuItem = menuItems.map((option) => {
         return(
             <MenuCard
@@ -31,9 +32,10 @@ const Highlights = () => {
                 food = {option.food}
                 price = {option.price}
                 description = {option.description}
+                alt = {option.alt}
             />
-        )
-    })
+        );
+    });
 
     return (
         <section id="highlights-section">
