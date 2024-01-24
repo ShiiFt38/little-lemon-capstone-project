@@ -1,9 +1,11 @@
+import Header from "../components/Header";
 
 
 const reservation = () => {
     return (
         <>
-            <h1>Reservations page</h1>
+            <Header/>
+            <div id="main"></div>
         </>
     );
 };

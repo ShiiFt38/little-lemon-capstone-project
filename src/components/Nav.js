@@ -10,6 +10,10 @@ import { Link} from 'react-router-dom';
         setShowMenu(!showMenu);
     };
 
+    const handleClick = () => {
+        setShowMenu(false)
+    };
+
     return(
     <nav>
         <button id="menu-icon" onClick={toggleMenu}>
@@ -17,12 +21,12 @@ import { Link} from 'react-router-dom';
         </button>
 
         <ul id="nav-links" className={showMenu ? 'show-menu' : ''}>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/">About</Link></li>
-            <li><Link to="#highlights-section">Menu</Link></li>
-            <li><Link to="/reservation">Reservations</Link></li>
-            <li><Link to="/">Order Online</Link></li>
-            <li><Link to="/">Login</Link></li>
+            <li><Link onClick={handleClick} to="/">Home</Link></li>
+            <li><Link onClick={handleClick} to="/">About</Link></li>
+            <li><Link onClick={handleClick} to="#highlights-section">Menu</Link></li>
+            <li><Link onClick={handleClick} to="/reservation">Reservations</Link></li>
+            <li><Link onClick={handleClick} to="/">Order Online</Link></li>
+            <li><Link onClick={handleClick} to="/">Login</Link></li>
         </ul>
     </nav>
     );
