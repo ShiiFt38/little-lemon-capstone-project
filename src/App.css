@@ -133,19 +133,24 @@ p{
 }
 
 #hero-grid-2{
+  position: relative;
   display: flex;
-  max-height: 250px;
+  max-height: 150px;
   /* background-color: black; */
   justify-content: center;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
 
 }
 
 #hero-grid-2 img{
-  height: 378px;
+  position: absolute;
+  margin-top: 200px;
+  height: 328px;
   width: 277px;
   margin: auto;
+  top: -15px;
+  border-radius: 10px;
 }
 
 #hero-section h1{
@@ -431,6 +436,10 @@ p{
 
   #nav-links li {
     margin: 10px;
+  }
+
+  #highlights-section{
+    margin-top: 5rem;
   }
 
   #highlights-grid-1{
