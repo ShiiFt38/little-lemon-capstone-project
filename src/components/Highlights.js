@@ -14,7 +14,7 @@ const Highlights = () => {
             food: "Bruschetta",
             description: "Our Bruschetta is made from  grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
             price: "5.99",
-            alt: "cheese"
+            alt: "cheese image"
         },
         {
             image: './images/assets/Macaroni.jpg',
@@ -41,6 +41,7 @@ const Highlights = () => {
         <section id="highlights-section">
             <div id="highlights-grid-1">
                 <h1>This week's specials!</h1>
+                <br></br>
                 <button className="cta">Online Menu</button>
             </div>
             <div id="highlights-grid-2">

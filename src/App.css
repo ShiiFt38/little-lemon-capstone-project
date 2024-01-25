@@ -1,3 +1,5 @@
+  @import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap');
+
 *{
   margin: 0;
   padding: 0;
@@ -23,6 +25,19 @@ html, body{
   padding-inline: 70px;
 }
 
+h1{
+font-family: Markazi Text;
+font-size: 44px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+p{
+  font-family: Markazi Text;
+  font-size: 20px;
+}
+
 /* header styles */
 #header{
   display: flex;
@@ -35,6 +50,7 @@ html, body{
   align-items: center;
   /* margin-block: 20px; */
   position: fixed;
+  z-index: 500;
 }
 
 .logo-img{
@@ -56,11 +72,20 @@ html, body{
   transition:all 0.2s ease-in-out;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: Markazi Text;
+  font-size: x-large;
 }
 
 #nav-links a:hover{
   color: var(--Primary-1);
 }
+
+
+#nav-links li a.active {
+  color: var(--Primary-1);
+  border-bottom: 2px solid var(--Primary-2);
+}
+
 
 #menu-icon{
   display: none;
@@ -77,7 +102,7 @@ html, body{
 #main{
   display: flex;
   flex-flow: column;
-  min-height: 2375px;
+  height: fit-content;
 }
 
 /* hero section styles */
@@ -93,32 +118,34 @@ html, body{
   border-radius: 5px;
 }
 
-#hero-grid-1, #hero-grid-2{
+#hero-grid-1, #hero-grid-2,#about-grid-1,#about-grid-2{
   height: 359px;
   width: 400px;
-  
+  margin: 20px;
 }
 
 #hero-grid-1{
   /* background-color: var(--Secondary-1); */
   display: flex;
-  height: 250px;
+  height: 280px;
   flex-direction: column;
   justify-content: space-around;
 }
 
 #hero-grid-2{
   display: flex;
+  max-height: 250px;
   /* background-color: black; */
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+
 }
 
 #hero-grid-2 img{
-  height: 278px;
+  height: 378px;
   width: 277px;
   margin: auto;
-  border-radius: 10px;
 }
 
 #hero-section h1{
@@ -137,10 +164,12 @@ html, body{
   color: var(--Highlight-2);
   font-weight: bolder;
   border: none;
+  cursor: pointer;
 }
 
 /* styles for highlights section */
 #highlights-section{
+  margin-block: 30px;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -148,23 +177,20 @@ html, body{
 }
 
 #highlights-grid-1, #highlights-grid-2{
-
+  margin-inline: auto;
+  display: flex;
+  flex-flow: wrap;
 }
 
 #highlights-grid-1{
-  margin-top: 30px;
-  margin-inline: auto;
-  display: flex;
-  flex-wrap: wrap;
+  margin-block: 30px;
   max-height: 200px;
   width: 70%;
+  text-align: center;
   justify-content: space-between;
 }
 
 #highlights-grid-2{
-  margin-inline: auto;
-  display: flex;
-  flex-flow: wrap;
   align-items: center;
   justify-content: center;
   width: 80%;
@@ -191,12 +217,22 @@ html, body{
   margin: 20px;
 }
 
+.delivery-icon{
+  width: 19px;
+  height: 19px;
+  transform: translateX(-30px);
+  transition: all 0.3s ease;
+}
+
+
+
 .menu-image{
   width: 100%;
   height: 213px;
 }
 
 .food-item{
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -217,30 +253,130 @@ html, body{
   justify-content: space-around;
   align-items: center;
   margin: auto;
+  cursor: pointer;
+  border: none;
 }
 
-.menu-cta img{
-  width: 19px;
-  height: 19px;
+.menu-cta:hover .delivery-icon{
+  transform: translateX(0px)
 }
 
 /* styles for testimonials section */
 #testimonials-section{
+  margin-block: 30px;
+  margin-inline: auto;
   background-color: var(--Highlight-1);
   width: 100%;
+  height: fit-content;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  padding-block: 30px;
+  width: 90vw;
 }
 
-#about-section{
+#testimonial-grid-1{
   width: 100%;
-  grid-row: 4/ span 1;
+  top: 0;
+  margin-block: 30px;
 }
 
+#testimonial-grid-2{
+  margin-block: 30px;
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  /* overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth; */
+}
 
+#testimonial-grid-2 > * {
+  scroll-snap-align: center;
+}
+
+.testimony-profile{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+  padding-block: 1rem;
+  min-width: 200px;
+  height: 214px;
+  background-color: white;
+  justify-content: space-between;
+}
+
+.testimony-profile p{
+  color: var(--Highlight-2);
+  text-align: center;
+  max-width: 30rem;
+}
+
+.profile-pic{
+  width: 61px;
+  height: 61px;
+  margin: auto;
+  border-radius: 50%;
+  background-image: url(./assets/Profile-Icon.png);
+}
+
+/* styles for the about section */
+#about-section{
+  width: 95%;
+  min-height: 300px;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+#about-grid-1{
+  justify-content: space-between;
+  /* background-color: var(--Primary-2); */
+  width: 350px;
+  height: 200px;
+}
+
+#about-grid-1 p{
+  color: black;
+  margin-top: 30px;
+}
+
+#about-grid-2 {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  /* background-color: black; */
+}
+
+#about-grid-2 img{
+  position: absolute;
+  width: 200px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#about-image-1{
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#about-image-2{
+  bottom: 0;
+  right: 0;
+}
+
+/* #about-grid-2 img:first-child:hover{
+  opacity: 0;
+} */
 
 #footer{
   display: flex;
   background-color: var(--Highlight-2);
   color: white;
+  margin-top: 30px;
   width: 100vw;
   min-height: 330px;
 }
@@ -285,8 +421,7 @@ html, body{
     top: 60px;
     left: 0;
     background-color: var(--Highlight-1);
-    width: 100%;
-    border-radius: 10px;
+    width: 95%;
     text-align: center;
   }
 

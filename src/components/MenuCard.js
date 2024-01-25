@@ -8,13 +8,13 @@ const MenuCard = (props) => {
             <div className="card-info">
                 <div className="food-item">
                     <h4>{props.food}</h4>
-                    <p>{props.price}</p>
+                    <p>${props.price}</p>
                 </div>
                 <p>{props.description}</p>
-                <div className="menu-cta">
+                <button className="menu-cta">
                     <p>Order a delivery</p>
-                    <img src="./images/assets/f21897ecfdee7d5927d1ec7b61408485ab9f6838.jpg"></img>
-                </div>
+                    <img src="./images/assets/f21897ecfdee7d5927d1ec7b61408485ab9f6838.jpg" alt="" className="delivery-icon"></img>
+                </button>
             </div>
         </div>
     );

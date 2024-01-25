@@ -7,7 +7,6 @@ import Reservation from './pages/reservation';
 function App() {
   return (
     <>
-    {/* <Header/> */}
     <Routes>
       <Route path='/' element={<HomePage/>}></Route>
       <Route path='/reservation' element={<Reservation/>}></Route>
