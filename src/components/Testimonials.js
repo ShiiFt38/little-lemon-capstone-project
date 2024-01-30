@@ -2,7 +2,7 @@ import Testimony from "./Testimony";
 
 const Testimonials = () => {
     const TestimonyData = [
-        { image: "", rating: 5, name: "John Doe", text: "Great product!" },
+        { image: "", rating: 5, name: "John Shelby", text: " A game-changer" },
         { image: "", rating: 4, name: "Jane Doe", text: "Works as expected." },
         { image: "", rating: 5, name: "Bob Smith", text: "Highly recommended." },
     ]
