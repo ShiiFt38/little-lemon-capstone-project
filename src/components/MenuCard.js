@@ -1,5 +1,3 @@
-
-
 const MenuCard = (props) => {
 
     return (

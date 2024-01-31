@@ -3,6 +3,7 @@ import MenuCard from '../components/MenuCard';
 const Highlights = () => {
     const menuItems = [
         {
+            id: 1,
             image: './images/assets/Greek Salad.jpg',
             food: "Greek Salad",
             description: "The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons.",
@@ -10,6 +11,7 @@ const Highlights = () => {
             alt: "Salad"
         },
         {
+            id: 2,
             image: './images/assets/Bruschetta.jpg',
             food: "Bruschetta",
             description: "Our Bruschetta is made from  grilled bread that has been smeared with garlic and seasoned with salt and olive oil.",
@@ -17,6 +19,7 @@ const Highlights = () => {
             alt: "cheese image"
         },
         {
+            id: 3,
             image: './images/assets/Macaroni.jpg',
             food: "Lemon dessert",
             description: "This comes straight from grandma’s recipe book, every last ingredient has been sourced and is authentic as can be imagined.",
@@ -28,6 +31,7 @@ const Highlights = () => {
     const menuItem = menuItems.map((option) => {
         return(
             <MenuCard
+            key = {option.id}
                 image = {option.image}
                 food = {option.food}
                 price = {option.price}
