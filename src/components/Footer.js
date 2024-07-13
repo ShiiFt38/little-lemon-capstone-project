@@ -8,11 +8,11 @@ const Footer = () => {
                 <h2>Doormat Navigation</h2>
                 <nav>
                     <ul>
-                        <li><a>Home</a></li>
-                        <li><a>About</a></li>
-                        <li><a>Menu</a></li>
-                        <li><a>Order Online</a></li>
-                        <li><a>Login</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li>About</li>
+                        <li>Menu</li>
+                        <li>Order Online</li>
+                        <li>Login</li>
                     </ul>
                 </nav>
             </div>
@@ -20,9 +20,9 @@ const Footer = () => {
                 <h2>Contact</h2>
                 <nav>
                     <ul>
-                        <li><a>Address</a></li>
-                        <li><a>Phone Number</a></li>
-                        <li><a>Email</a></li>
+                        <li>Address</li>
+                        <li>Phone Number</li>
+                        <li>Email</li>
                     </ul>
                 </nav>
             </div>
@@ -30,9 +30,9 @@ const Footer = () => {
                 <h2>Social Media Links</h2>
                 <nav>
                     <ul>
-                        <li><a>Address</a></li>
-                        <li><a>Phone Number</a></li>
-                        <li><a>Email</a></li>
+                        <li>Address</li>
+                        <li>Phone Number</li>
+                        <li>Email</li>
                     </ul>
                 </nav>
             </div>

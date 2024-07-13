@@ -1,132 +1,180 @@
-import { useState } from "react";
-import { validateEmail } from "../utils";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
-const BookingForm = ({availableTimes, dispatch, initializeTimes} ) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [date, setDate] = useState("");
-    const [times, setTimes] = useState("");
-    const [guests, setGuests] = useState("")
-    const [occasion, setOccasion] = useState("");
+const BookingForm = ({ availableTimes, dispatch, initializeTimes }) => {
+
+    const navigate = useNavigate();
+
+    const formik = useFormik({
+        initialValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            date: "",
+            times: "",
+            guests: 0,
+            occasion: ""
+        },
+        onSubmit: (values) => { 
+            console.log(values);
+            navigate('/ConfirmedBooking'); 
+        },
+        validationSchema: Yup.object({
+            firstName: Yup.string().min(3, "Must be atleast 3 characters"),
+            email: Yup.string().email("Invalid email address")
+        })
+    })
+
+    /*const handleChange = (e) => {
+        const {name, value} = e.target;
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]:value
+        }))
+        console.log(formData)
+    }
+
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        date: "",
+        times: "",
+        guests: 0,
+        occasion: ""
+    })
+
+    const navigate = useNavigate();
+
+        const [date, setDate] = useState({
+        value: "",
+        isTouched: false
+    });
+        const handleDateChange = (e) => {
+        dispatch({ type: 'INITIALIZE_TIMES', payload: initializeTimes() });
+        setDate({ ...date, isTouched: true, value: e.target.value });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("form submitted")
+        navigate('/ConfirmedBooking');
     }
+        */
 
-    const formValidation = (email) => {
-        return(
-            firstName &&
-            phone &&
-            validateEmail(email) &&
-            date &&
-            times &&
-            guests
-        );
-    }
+    const today = new Date().toISOString().split('T')[0];
 
-    const handleDateChange = (e) => {
-        dispatch({type: 'INITIALIZE_TIMES', payload: initializeTimes()});
-        setDate(e.target.value)
-    };
-
-    return(
-        <form style={{display: "grid", gap: "20px"}}>
+    return (
+        <form style={{ display: "grid", gap: "20px" }} onSubmit={formik.handleSubmit}>
             <fieldset>
-                <div>
+
+                <div className="field">
                     <label htmlFor="firstname">First Name: <sup>*</sup></label>
-                    <input 
+                    <input
                         type="text"
                         id="firstname"
-                        value={firstName}
-                        onChange={(e) => {
-                            setFirstName(e.target.value);
-                        }}></input>
+                        name="firstName"
+                        required
+                        value={formik.values.firstName}
+                        onChange={formik.handleChange}></input>
+                    <p className="field-error">{formik.errors.firstName}</p>
+                </div>
 
+                <div className="field">
                     <label htmlFor="lastName">Last Name: </label>
-                    <input 
-                        id="lastName" 
+                    <input
+                        id="lastName"
                         type="text"
-                        value={lastName}
-                        onChange={(e) => {
-                            setLastName(e.target.value);
-                        }}></input>
+                        name="lastName"
+                        value={formik.values.lastName}
+                        onChange={formik.handleChange}></input>
                 </div>
-                <div>
-                    <label htmlFor="email">Email: </label>
-                    <input 
-                        type="email" 
-                        id='email'
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                        }}></input>
 
+                <div className="field">
+                    <label htmlFor="email">Email: </label>
+                    <input
+                        type="email"
+                        id='email'
+                        name="email"
+                        value={formik.values.email}
+                        onChange={formik.handleChange}></input>
+                        <p className="field-error">{formik.errors.email}</p>
+                </div>
+
+                <div className="field">
                     <label htmlFor="phone">Phone: <sup>*</sup></label>
-                    <input 
-                        type="phone" 
+                    <input
+                        type="phone"
                         id="phone"
-                        value={phone}
-                        onChange={(e) => {
-                            setPhone(e.target.value);
-                        }}></input>
+                        required
+                        name="phone"
+                        value={formik.values.phone}
+                        onChange={formik.handleChange}></input>
+                        <p className="field-error">{formik.errors.phone}</p>
                 </div>
-                <div>
-                    <label for="res-date">Choose Date: <sup>*</sup></label>
-                    <input 
-                        type="date" 
-                        id="res-date"
-                        value={date}
-                        onChange={handleDateChange}></input>
+
+                <div className="field">
+                    <label htmlFor="date">Choose Date: <sup>*</sup></label>
+                    <input
+                        type="date"
+                        id="date"
+                        required
+                        min={today}
+                        value={formik.values.date}
+                        onChange={formik.handleChange}></input>
+                    {/* {date.isTouched && date.value < today ? <p className="field-error">Reservations can only be made for today or later</p> : null} */}
                 </div>
-                <div>
-                    <label htmlFor="res-time">Choose Time: <sup>*</sup></label>
-                    <select 
-                        id="res-time"
-                        value={times}
-                        onChange={(e) => {
-                            setTimes(e.target.value)
-                        }}>
+
+
+                <div className="field">
+                    <label htmlFor="times">Choose Time: <sup>*</sup></label>
+                    <select
+                        id="times"
+                        required
+                        value={formik.values.times}
+                        onChange={formik.handleChange}>
+                        <option value=""></option>
                         {availableTimes.map((time, index) => (
                             <option key={index} value={time}>{time}</option>
                         ))}
                     </select>
                 </div>
-                <div>
+
+                <div className="field">
                     <label htmlFor="guests">Number of guests: <sup>*</sup></label>
-                    <input 
-                        type="number" 
-                        placeholder="1" 
-                        min="1" 
-                        max="10" 
+                    <input
+                        type="number"
+                        placeholder="0"
+                        min="1"
+                        max="10"
                         id="guests"
-                        value={guests}
-                        onChange={(e) => {
-                            setGuests(e.target.value);
-                        }}></input>
+                        required
+                        value={formik.values.guests}
+                        onChange={formik.handleChange}></input>
                 </div>
-                <div>
+
+                <div className="field">
                     <label htmlFor="occasion">Occasion: </label>
-                    <select 
+                    <select
                         id="occasion"
-                        value={occasion}
-                        onChange={(e) => {
-                            setOccasion(e.target.value);
-                        }}>
-                        <option>Casual</option>
-                        <option>Birthday</option>
-                        <option>Anniversary</option>
+                        value={formik.values.occasion}
+                        name="occasion"
+                        onChange={formik.handleChange}>
+                        <option value=""></option>
+                        <option value="Casual">Casual</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Anniversary">Anniversary</option>
                     </select>
                 </div>
-                <button 
-                disabled={!formValidation}
-                id="form-button"
-                type="submit"
-                onClick={handleSubmit}
-                className="cta"
-                style={{marginInline: "auto"}}>Make Your Reservation</button>
+
+                <button
+                    id="form-button"
+                    type="submit"
+                    className="cta"
+                    style={{ marginInline: "auto" }}>Make Your Reservation</button>
             </fieldset>
         </form>
     );

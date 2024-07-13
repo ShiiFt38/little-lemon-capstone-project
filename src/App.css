@@ -208,6 +208,7 @@ p{
   gap: 30px;
 }
 
+/* styles for the product cards */
 .card{
   width: 275px;
   height: 467px;
@@ -234,8 +235,6 @@ p{
   transform: translateX(-30px);
   transition: all 0.3s ease;
 }
-
-
 
 .menu-image{
   width: 100%;
@@ -428,6 +427,7 @@ p{
   align-items: center;
 
 }
+
 fieldset{
   background-color: var(--Highlight-1);
   padding: 30px;
@@ -436,9 +436,19 @@ fieldset{
   flex-direction: column;
   align-items: center;
 }
-#res-form > div{
+
+.field{
+  position: relative;
   display: flex;
-  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.field-error{
+  color: red;
+  position: absolute;
+  font-size: 12px;
+  bottom: -6px;
 }
 
 #res-heading{
@@ -449,11 +459,13 @@ fieldset{
 
 }
 
+input,select{
+  height: 30px;
+}
+
 select{
   margin: 20px;
   width: 169px;
-  height: 40px;
-  padding: 5px 22px 5px 10px;
   color: var(--Primary-1);
   align-items: center;
   border: none;
@@ -464,21 +476,21 @@ select{
 
 input{
   width: 185px;
-  height: 30px;
   margin: 20px;
   border-radius: 10px;
-  border: 1px solid var(--Highlight-2, #333);
+  border: 1px solid var(--Highlight-2);
   background: #EDEFEE;
 }
 
-button:disabled{
-  background-color: var(--Highlight);
+#form-button:disabled, #form-button:hover{
+  background-color: var(--Primary-2);
 }
 
 sup{
   color: red;
 }
 
+/* styles for popup error message */
 .popup {
   color: black;
   position: fixed;
